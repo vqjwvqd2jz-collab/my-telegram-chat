@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>💬 Вся наша история - 38 частей</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2a5298;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border: 3px solid #e1e8ed;
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-height: 100px;
+        }
+        
+        .btn:hover {
+            background: #2a5298;
+            color: white;
+            border-color: #2a5298;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(42, 82, 152, 0.4);
+        }
+        
+        .btn-start {
+            background: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+            grid-column: span 2;
+        }
+        
+        .btn-start:hover {
+            background: #ff5252;
+            border-color: #ff5252;
+        }
+        
+        .btn-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .btn-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .media-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .media-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .media-btn {
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .buttons-grid { grid-template-columns: repeat(3, 1fr); }
+            .btn-start { grid-column: span 3; }
+        }
+        
+        @media (max-width: 480px) {
+            .buttons-grid { grid-template-columns: repeat(2, 1fr); }
+            .btn-start { grid-column: span 2; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💬 Вся наша история</h1>
+        <p class="subtitle">38 частей переписки • Все фото, видео, голосовые, стикеры</p>
+        
+        <div class="buttons-grid" id="buttons-container">
+            <!-- Кнопки будут добавлены автоматически -->
+        </div>
+        
+        <div class="media-section">
+            <h3>📁 Медиафайлы</h3>
+            <div class="media-grid">
+                <a href="photos/" class="media-btn">📸 Фото</a>
+<a href="video_files/" class="media-btn">🎥 Видео</a>
+                <a href="voice_messages/" class="media-btn">🎤 Голосовые</a>
+                <a href="stickers/" class="media-btn">🖼️ Стикеры</a>
+                <a href="files/" class="media-btn">📎 Файлы</a>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📱 Как пользоваться</h3>
+            <p>1. <b>Начните с «Начало»</b> — первые дни переписки</p>
+            <p>2. <b>Переходите по частям</b> по порядку (1, 2, 3...)</p>
+            <p>3. <b>Все медиафайлы работают</b> — фото, видео, голосовые открываются по клику</p>
+            <p>4. <b>Для телефона:</b> просто откройте эту страницу в мобильном браузере</p>
+            <p><b>🔗 Ссылка на сайт:</b> <span id="site-url"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Создаём все кнопки автоматически
+        const container = document.getElementById('buttons-container');
+        
+        // 1. Кнопка "Начало" (messages.html)
+        const startBtn = document.createElement('a');
+        startBtn.href = 'messages.html';
+        startBtn.className = 'btn btn-start';
+        startBtn.innerHTML = `
+            <div class="btn-number">📖</div>
+            <div class="btn-label">Начало переписки</div>
+            <div style="font-size: 12px; margin-top: 5px;">первые дни</div>
+        `;
+        container.appendChild(startBtn);
+        
+        // 2. Кнопки для частей 2-38
+        for (let i = 2; i <= 38; i++) {
+            const btn = document.createElement('a');
+            btn.href = messages${i}.html;
+            btn.className = 'btn';
+            btn.innerHTML = `
+                <div class="btn-number">${i}</div>
+                <div class="btn-label">Часть</div>
+            `;
+            container.appendChild(btn);
+        }
+        
+        // Показываем URL сайта
+        document.getElementById('site-url').textContent = window.location.href;
+        
+        // Проверяем доступность файлов
+        async function checkFiles() {
+            try {
+                const test = await fetch('messages.html');
+                if (!test.ok) {
+                    container.innerHTML = '<p style="color: red; text-align: center; padding: 40px;">Файлы не найдены. Загрузите messages.html и messages2.html...messages38.html</p>';
+                }
+            } catch (error) {
+                console.log('Файлы проверены');
+            }
+        }
+        
+        checkFiles();
+    </script>
+</body>
+</html>
